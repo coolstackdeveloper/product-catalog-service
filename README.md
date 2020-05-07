@@ -70,6 +70,10 @@ All models are specified in the `/Models` folder, but should conform to:
 }
 ```
 
+## High level overview
+
+![Architecture](screenshots/Architecture.png)
+
 ## Development
 
 The refactored source code is available under `src` folder;
