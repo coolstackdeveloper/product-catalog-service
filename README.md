@@ -1,6 +1,6 @@
 # Objective
 
-The source code under 'src-original' is a poorly written products API in C#.
+The source code under `src-original` is a poorly written products API in C#.
 
 The objective of this assigment is to refactor and improve code considering all aspects of good software engineering and make it a production ready code.
 
