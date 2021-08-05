@@ -1,9 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ProductCatalogService.Application.DTO;
 using ProductCatalogService.Application.Messaging.Commands;
+using System;
+using System.Threading.Tasks;
 
 namespace ProductCatalogService.Web.Controllers
 {
@@ -30,14 +30,14 @@ namespace ProductCatalogService.Web.Controllers
         public async Task<IActionResult> GetProductOptions(Guid productId)
         {
             var commandResult = await _mediator.Send(new GetProductOptionsCommand(productId));
-            return commandResult ? (IActionResult) Ok(commandResult.Result) : NotFound(commandResult.FailureReason);
+            return commandResult ? Ok(commandResult.Result) : NotFound(commandResult.FailureReason);
         }
 
         [HttpGet("{productId}/options/{productOptionId}")]
         public async Task<IActionResult> GetProductOption(Guid productId, Guid productOptionId)
         {
             var commandResult = await _mediator.Send(new GetProductOptionByIdCommand(productOptionId));
-            return commandResult ? (IActionResult) Ok(commandResult.Result) : NotFound(commandResult.FailureReason);
+            return commandResult ? Ok(commandResult.Result) : NotFound(commandResult.FailureReason);
         }
 
         [HttpPut("{productId}/options/{productOptionId}")]

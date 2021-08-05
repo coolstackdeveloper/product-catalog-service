@@ -1,12 +1,12 @@
-﻿using System;
-using System.Data;
-using System.Threading.Tasks;
-using System.Transactions;
-using Dapper;
+﻿using Dapper;
 using Microsoft.Extensions.Logging;
 using ProductCatalogService.Application.Interfaces.Persistence;
 using ProductCatalogService.Domain.Models;
 using ProductCatalogService.Infrastructure.Persistence.TypeHandlers;
+using System;
+using System.Data;
+using System.Threading.Tasks;
+using System.Transactions;
 
 namespace ProductCatalogService.Infrastructure.Persistence
 {
@@ -98,8 +98,8 @@ namespace ProductCatalogService.Infrastructure.Persistence
             {
                 using (var transaction = new TransactionScope())
                 {
-                    await _connection.ExecuteAsync(DeleteProductOptionsByProductIdSql, new {ProductId = productId});
-                    var affectedRows = await _connection.ExecuteAsync(DeleteProductSql, new {Id = productId});
+                    await _connection.ExecuteAsync(DeleteProductOptionsByProductIdSql, new { ProductId = productId });
+                    var affectedRows = await _connection.ExecuteAsync(DeleteProductSql, new { Id = productId });
                     transaction.Complete();
 
                     if (affectedRows == 0) throw new Exception();
@@ -160,7 +160,7 @@ namespace ProductCatalogService.Infrastructure.Persistence
             try
             {
                 var affectedRows = await _connection.ExecuteAsync(DeleteProductOptionByIdSql,
-                    new {Id = productOptionId});
+                    new { Id = productOptionId });
 
                 if (affectedRows == 0) throw new Exception();
             }

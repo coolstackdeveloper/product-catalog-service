@@ -1,6 +1,6 @@
-﻿using System;
-using ProductCatalogService.Domain.Exceptions;
+﻿using ProductCatalogService.Domain.Exceptions;
 using ProductCatalogService.Helpers;
+using System;
 
 namespace ProductCatalogService.Domain.Models
 {

@@ -78,7 +78,7 @@ All models are specified in the `/Models` folder, but should conform to:
 
 The refactored source code is available under `src` folder;
 
-The project is based on `ASP.NET Core 2.2` using `Visual Studio 2017`. However feel free to run using `Visual Studio Code`.
+The project is based on `ASP.NET Core 5.0` using `Visual Studio 2019`. However feel free to run using `Visual Studio Code`.
 
 ### Build
 
@@ -100,6 +100,6 @@ APIs can be tested using swagger at https://localhost:5001/swagger/index.html.
 
 ### Postman Collection
 
-The postman scripts are located under `postman-collections` folder.
+The postman scripts are located under `postman-collections` folder. Ensure you setup environment variable named `ApiUrl` to point to local web server url. In our case it would be http://localhost:5000/.
 
 

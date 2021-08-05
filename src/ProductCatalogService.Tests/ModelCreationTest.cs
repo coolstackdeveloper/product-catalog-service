@@ -1,6 +1,6 @@
-using System;
 using ProductCatalogService.Domain.Exceptions;
 using ProductCatalogService.Domain.Models;
+using System;
 using Xunit;
 
 namespace ProductCatalogService.Tests
@@ -20,7 +20,7 @@ namespace ProductCatalogService.Tests
             double? deliveryPrice)
         {
             Assert.Throws<ProductException>(() =>
-                new Product(name, description, (decimal?) price, (decimal?) deliveryPrice));
+                new Product(name, description, (decimal?)price, (decimal?)deliveryPrice));
         }
 
         [Theory]
@@ -43,11 +43,11 @@ namespace ProductCatalogService.Tests
             double? price,
             double? deliveryPrice)
         {
-            var product = new Product(name, description, (decimal?) price, (decimal?) deliveryPrice);
+            var product = new Product(name, description, (decimal?)price, (decimal?)deliveryPrice);
             Assert.Equal(product.Name, name);
             Assert.Equal(product.Description, description);
-            Assert.Equal((double?) product.Price, price);
-            Assert.Equal((double?) product.DeliveryPrice, deliveryPrice);
+            Assert.Equal((double?)product.Price, price);
+            Assert.Equal((double?)product.DeliveryPrice, deliveryPrice);
         }
 
         [Fact]

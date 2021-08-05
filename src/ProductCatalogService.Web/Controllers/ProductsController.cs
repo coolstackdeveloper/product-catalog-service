@@ -1,9 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ProductCatalogService.Application.DTO;
 using ProductCatalogService.Application.Messaging.Commands;
+using System;
+using System.Threading.Tasks;
 
 namespace ProductCatalogService.Web.Controllers
 {
@@ -31,20 +31,20 @@ namespace ProductCatalogService.Web.Controllers
             if (string.IsNullOrWhiteSpace(name))
             {
                 var commandResult = await _mediator.Send(new GetProductsCommand());
-                return commandResult ? (IActionResult) Ok(commandResult.Result) : NotFound(commandResult.FailureReason);
+                return commandResult ? Ok(commandResult.Result) : NotFound(commandResult.FailureReason);
             }
             else
             {
                 var commandResult = await _mediator.Send(new GetProductsByNameCommand(name));
-                return commandResult ? (IActionResult) Ok(commandResult.Result) : NotFound(commandResult.FailureReason);
+                return commandResult ? Ok(commandResult.Result) : NotFound(commandResult.FailureReason);
             }
         }
 
-        [HttpGet("{productId}")]
+        [HttpGet("{productId:guid}")]
         public async Task<IActionResult> GetProduct(Guid productId)
         {
             var commandResult = await _mediator.Send(new GetProductByIdCommand(productId));
-            return commandResult ? (IActionResult) Ok(commandResult.Result) : NotFound(commandResult.FailureReason);
+            return commandResult ? Ok(commandResult.Result) : NotFound(commandResult.FailureReason);
         }
 
         [HttpPut("{productId}")]

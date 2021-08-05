@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using Dapper;
+﻿using Dapper;
 using Microsoft.Extensions.Logging;
 using ProductCatalogService.Application.Interfaces.Persistence;
 using ProductCatalogService.Domain.Models;
 using ProductCatalogService.Infrastructure.Persistence.TypeHandlers;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ProductCatalogService.Infrastructure.Persistence
 {
@@ -58,7 +58,7 @@ namespace ProductCatalogService.Infrastructure.Persistence
         {
             try
             {
-                return await _connection.QuerySingleAsync<Product>(SelectProductByIdSql, new {Id = id});
+                return await _connection.QuerySingleAsync<Product>(SelectProductByIdSql, new { Id = id });
             }
             catch (Exception e)
             {
@@ -71,7 +71,7 @@ namespace ProductCatalogService.Infrastructure.Persistence
         {
             try
             {
-                return await _connection.QueryAsync<Product>(SelectProductByNameSql, new {Name = $"%{name}%"});
+                return await _connection.QueryAsync<Product>(SelectProductByNameSql, new { Name = $"%{name}%" });
             }
             catch (Exception e)
             {
@@ -102,7 +102,7 @@ namespace ProductCatalogService.Infrastructure.Persistence
             try
             {
                 return await _connection.QuerySingleAsync<ProductOption>(SelectProductOptionByIdSql,
-                    new {Id = productOptionId});
+                    new { Id = productOptionId });
             }
             catch (Exception e)
             {

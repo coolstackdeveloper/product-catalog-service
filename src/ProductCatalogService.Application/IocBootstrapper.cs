@@ -1,7 +1,6 @@
-﻿using System.Reflection;
-using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace ProductCatalogService.Application
 {

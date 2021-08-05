@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using ProductCatalogService.Application.DTO;
 using ProductCatalogService.Application.Messaging.Commands;
 using ProductCatalogService.Web.Controllers;
+using System;
+using System.Collections.Generic;
+using System.Threading;
 using Xunit;
 
 namespace ProductCatalogService.Tests
